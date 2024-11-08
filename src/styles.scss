@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@use './styles/base/' as *;
+@use './styles/abstracts/' as *;
+@use './styles/components/' as *;
+@use './styles/layouts/' as *;
+@use './styles/pages/' as *;
+@use './styles/theme/' as *;
+@use './styles/utilities/' as *;
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
