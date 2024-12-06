@@ -6,4 +6,6 @@ body {
   font-variation-settings: "wdth" 100;
   color: var(--text);
   background-color: var(--silver);
+  scroll-padding: 3rem;
+  scroll-behavior: smooth;
 }
