@@ -1,1 +1,52 @@
-<p>contact works!</p>
+<div class="contact">
+  <h1 class="section-head">{{ "contact" | translate }}</h1>
+  <form class="contact-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <fieldset class="input-group">
+      <label for="name">{{ "name" | translate }}</label>
+      <input type="text" id="name" formControlName="name" />
+      @if(form.controls['name'].touched && form.controls['name'].invalid){
+      <small class="input-error">{{
+        "Please enter your name!" | translate
+      }}</small>
+      }
+    </fieldset>
+    <fieldset class="input-group">
+      <label for="email">{{ "email" | translate }}</label>
+      <input type="text" id="email" formControlName="email" />
+      @if(form.controls['email'].touched){ @if
+      (form.controls['email'].hasError('required')) {
+      <small class="input-error">{{
+        "Please enter your email address!" | translate
+      }}</small>
+      } @if (form.controls['email'].hasError('email')) {
+      <small class="input-error">{{
+        "Please enter a valid email address!" | translate
+      }}</small>
+      } }
+    </fieldset>
+    <fieldset class="input-group">
+      <label for="phone">{{ "phone" | translate }}</label>
+      <input
+        type="text"
+        inputmode="numeric"
+        id="phone"
+        formControlName="phone"
+      />
+      @if(form.controls['phone'].touched && form.controls['phone'].invalid){
+      <small class="input-error">{{
+        "Please enter your phone number!" | translate
+      }}</small>
+      }
+    </fieldset>
+    <fieldset class="input-group">
+      <label for="">{{ "message" | translate }}</label>
+      <textarea name="message" id="" formControlName="message"></textarea>
+      @if(form.controls['message'].touched && form.controls['message'].invalid){
+      <small class="input-error">{{
+        "Please enter the message!" | translate
+      }}</small>
+      }
+    </fieldset>
+    <button type="submit">{{ "send" | translate }}</button>
+  </form>
+</div>
