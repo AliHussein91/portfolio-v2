@@ -3,5 +3,15 @@
   "about": "من أنا",
   "projects": "مشاريع",
   "contact": "التواصل",
-  "Ali Hussein - 2024": "علي حسين - 2024"
+  "Ali Hussein - 2024": "علي حسين - 2024",
+  "name": "الإسم",
+  "email": "البريد الإلكتروني",
+  "phone": "رقم الهاتف",
+  "message": "الرسالة",
+  "send": "إرسال",
+  "Please enter your name!": "برجاء إدخال الإسم!",
+  "Please enter your email address!": "برجاء إدخال البريد الإلكتروني!",
+  "Please enter a valid email address!": "برجاء إدخال البريد الإلكتروني الصحيح!",
+  "Please enter your phone number!": "برجاء إدخال رقم الهاتف!",
+  "Please enter the message!": "برجاء إدخال الرسالة!"
 }
