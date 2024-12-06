@@ -3,12 +3,6 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  .section-head {
-    font-family: var(--serif);
-    padding-block: 3rem;
-    font-size: 2.5rem;
-    font-weight: 600;
-  }
   .contact-form {
     display: flex;
     flex-flow: column nowrap;
@@ -75,15 +69,15 @@
   }
 }
 
-
 @media (max-width: 500px) {
-    .contact {
-        .contact-form {
-            .input-group {
-                input, textarea {
-                    width: 330px;
-                }
-            }
+  .contact {
+    .contact-form {
+      .input-group {
+        input,
+        textarea {
+          width: 330px;
         }
+      }
     }
+  }
 }
