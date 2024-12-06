@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./shared/components/header/header.component";
 import { TranslateService } from '@ngx-translate/core';
@@ -12,11 +12,30 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'portfolio-v2';
+  translate = inject(TranslateService)
+  language = localStorage.getItem('language') || 'en'
+  el = document.querySelector('html')!;
 
-  constructor(private translate: TranslateService) {
-    const language:string = localStorage.getItem('language')!
+  constructor() {
     this.translate.addLangs(['ar', 'en']);
-    this.translate.setDefaultLang(language);
-    this.translate.use(language);
+    this.translate.setDefaultLang(this.language);
+    this.translate.use(this.language);
+    updateLayoutDirection(this.el, this.language)
+  }
+
+  changeLang() {
+    this.language === 'en' ? this.language = 'ar' : this.language = 'en'
+    localStorage.setItem('language', this.language)
+    this.translate.setDefaultLang(this.language)
+    this.translate.use(this.language)
+    updateLayoutDirection(this.el, this.language)
+  }
+}
+
+function updateLayoutDirection(ref: HTMLHtmlElement, language: string) {
+  if (language === 'ar') {
+    ref.setAttribute('dir', 'rtl');
+  } else {
+    ref.setAttribute('dir', 'ltr');
   }
 }
