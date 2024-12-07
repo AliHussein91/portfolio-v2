@@ -1,1 +1,41 @@
-<p>hero works!</p>
+<div class="hero">
+  <div class="image" [ngStyle]="rtl() ? {'transform': 'scaleX(-1)'}: {'transform': 'scaleX(1)'}">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 720 629">
+      <g clip-path="url(#a)">
+        <path
+          fill="#FDC435"
+          fill-rule="evenodd"
+          d="M426.755-247.339c99.255 4.716 203.661 41.602 264.264 118.397 56.034 71.006 18.384 171.83 34.389 260.056 12.868 70.93 60.894 133.847 49.996 205.09-12.072 78.928-50.562 154.249-112.872 205.982-65.261 54.182-151.697 99.709-235.777 83.485-81.494-15.724-106.88-118.848-176.506-163.036-76.18-48.348-208.996-21.85-243.818-103.722-34.113-80.203 77.526-150.656 99.877-234.704 24.759-93.1-26.7-205.576 36.786-279.185 65.771-76.26 181.595-97.213 283.661-92.363Z"
+          clip-rule="evenodd"
+        />
+      </g>
+      <defs>
+        <clipPath id="a">
+          <path fill="#fff" d="M0 0h720v629H0z" />
+        </clipPath>
+      </defs>
+    </svg>
+  </div>
+  <div class="intro">
+    <p class="role">{{ "Frontend Web Developer" | translate }}</p>
+    <h1 class="headline">
+      {{ "Hello, my name is Ali Hussein" | translate }}
+    </h1>
+    <p class="detail">
+      {{
+        "I'm passionate about transforming pixels into stunning, interactive experiences. I love crafting beautiful, functional, and user-friendly websites that push the boundaries of web development and design. With a deep understanding of the latest web technologies and frameworks, I'm dedicated to delivering cutting-edge digital solutions. Let's bring your digital vision to life!"
+          | translate
+      }}
+    </p>
+    <div class="actions">
+      <a class="projects-btn" routerLink="/projects">{{
+        "projects" | translate
+      }}</a>
+      <a
+        class="text-btn"
+        href="https://api.whatsapp.com/send/?phone=00201003390002"
+         target="_blank">{{ "text me 😊" | translate }}</a
+      >
+    </div>
+  </div>
+</div>
