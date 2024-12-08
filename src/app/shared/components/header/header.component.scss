@@ -10,6 +10,7 @@ header {
   backdrop-filter: blur(5px);
   user-select: none;
   z-index: 1000;
+  box-shadow: 0 1px 5px var(--shadow);
   nav {
     display: flex;
     flex-direction: row;
@@ -18,7 +19,7 @@ header {
     align-items: center;
     padding-inline: 4rem;
     .logo {
-      font-weight: 500;
+      font-weight: 700;
       font-size: 1.3rem;
     }
     .desktop {
@@ -152,6 +153,7 @@ header {
     }
   }
 }
+
 
 @media (max-width: 400px) {
   header {

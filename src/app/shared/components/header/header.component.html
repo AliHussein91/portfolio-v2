@@ -3,13 +3,13 @@
     <a routerLink="/" class="logo">{{ "Ali Hussein" | translate }}</a>
     <ul class="desktop">
       <li>
-        <a routerLink="/" class="navLink">{{ "about" | translate }}</a>
+        <a routerLink="/about" class="navLink">{{ "about" | translate }}</a>
       </li>
       <li>
-        <a routerLink="/" class="navLink">{{ "projects" | translate }}</a>
+        <a routerLink="/projects" class="navLink">{{ "projects" | translate }}</a>
       </li>
       <li>
-        <a href="#contact" class="navLink">{{ "contact" | translate }}</a>
+        <a routerLink="/contact" class="navLink">{{ "contact" | translate }}</a>
       </li>
       <li (click)="changeLang()">
         <svg
