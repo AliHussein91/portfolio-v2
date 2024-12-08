@@ -1,0 +1,21 @@
+<div class="project-card">
+  @if (left) {
+    <div class="project-details left">
+      <h1 class="project-name">{{ project.name }}</h1>
+      <p class="project-description">{{ project.description }}</p>
+      <a [href]="project.link" class="project-link" target="_blank" [ngClass]="!project.link? 'disabled' : ''">{{'view project' | translate}}</a>
+    </div>
+    <div class="project-image left">
+      <img [src]="project.image" [ngClass]="rtl()? 'rtl':'ltr'" />
+    </div>
+  } @else {
+    <div class="project-image right">
+      <img [src]="project.image" [ngClass]="rtl()? 'rtl':'ltr'" />
+    </div>
+    <div class="project-details right">
+      <h1 class="project-name">{{ project.name }}</h1>
+      <p class="project-description">{{ project.description }}</p>
+      <a [href]="project.link" class="project-link" target="_blank" [ngClass]="!project.link? 'disabled' : ''">{{'view project' | translate}}</a>
+    </div>
+  }
+</div>

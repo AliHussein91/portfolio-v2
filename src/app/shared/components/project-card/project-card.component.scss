@@ -1,0 +1,111 @@
+.project-card {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: start;
+  justify-content: center;
+  background-color: var(--white);
+  border-radius: 15px;
+  user-select: none;
+  .project-image {
+    order: 2;
+    flex: 1;
+    img {
+      max-width: 400px;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+  }
+  .project-details {
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: start;
+    justify-content: center;
+    gap: 1.5rem;
+    order: 1;
+    padding-inline: 1rem;
+    padding-block: 4rem;
+    .project-name {
+      font-size: 2.2rem;
+      font-weight: 600;
+      font-family: var(--serif);
+    }
+    .project-description {
+      color: var(--grey);
+    }
+    .project-link {
+      padding-inline: 1rem;
+      padding-block: 0.5rem;
+      outline: 1px solid var(--text);
+      border-radius: 50px;
+      text-transform: capitalize;
+      font-weight: 500;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        color: var(--white);
+        background-color: var(--text);
+        outline: transparent;
+        transition: all 0.2s ease-in-out;
+      }
+      &.disabled {
+        pointer-events: none;
+        user-select: none;
+        background-color: var(--silver);
+        cursor: not-allowed;
+        color: var(--grey);
+        outline: var(--silver);
+      }
+    }
+  }
+}
+
+@media (min-width: 830px) {
+  .project-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    .project-details {
+      padding-inline: 3rem;
+    }
+    .project-image.right {
+      order: 1;
+      img.ltr {
+        border-top-left-radius: 15px;
+        border-bottom-right-radius: 0px;
+      }
+      img.rtl {
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 0px;
+      }
+    }
+    .project-image.left {
+      order: 2;
+      img.ltr {
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 0px;
+      }
+      img.rtl {
+        border-top-left-radius: 15px;
+        border-bottom-right-radius: 0px;
+      }
+    }
+    .project-details.right {
+      order: 2;
+    }
+    .project-details.left {
+      order: 1;
+    }
+  }
+}
+
+@media (min-width: 1250px) {
+  .project-card {
+    .project-image img {
+      max-width: 500px;
+    }
+  }
+}
