@@ -8,6 +8,7 @@ export const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'about', loadComponent: () => import('./pages/about/about.component').then(c => c.AboutComponent)},
     {path: 'projects', loadComponent: ()=> import('./pages/projects/projects.component').then(c => c.ProjectsComponent)},
+    {path: 'admin', loadComponent: ()=> import('./pages/admin/admin.component').then(c => c.AdminComponent)},
     {path: 'contact', component: ContactMeComponent},
     {path: '**', redirectTo: '', pathMatch: 'full'}
 ];

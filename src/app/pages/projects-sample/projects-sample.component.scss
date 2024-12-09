@@ -1,16 +1,31 @@
-.sample-projects{
+.sample-projects {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  padding-block: 3rem;
+  padding-inline: 1rem;
+  .projects {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    padding-block: 3rem;
+    gap: 4rem;
+    padding-block: 2rem;
+  }
+  .all-projects {
+    background-color: var(--primary);
     padding-inline: 1rem;
-    .projects {
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: center;
-        justify-content: center;
-        gap: 4rem;
-        padding-block: 2rem;
+    padding-block: 0.5rem;
+    border-radius: 10px;
+    text-transform: capitalize;
+    font-weight: 500;
+    outline: transparent;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background-color: var(--white);
+      outline: 1px solid var(--primary);
+      transition: all 0.2s ease-in-out;
     }
+  }
 }

@@ -17,6 +17,7 @@
   font-size: 2.5rem;
   font-weight: 600;
   position: relative;
+  text-transform: capitalize;
   &::before {
     content: "";
     background-color: var(--primary);
