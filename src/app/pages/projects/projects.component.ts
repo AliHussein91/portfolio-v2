@@ -14,7 +14,20 @@ import { ProjectsService } from '../../core/services/projects.service';
 export class ProjectsComponent implements OnInit {
   projects: Project[] = []
   projectService = inject(ProjectsService)
+  isLoading = false
+
   ngOnInit(): void {
-    this.projectService.getProjects()
+    this.isLoading = true
+    this.projectService.getProjects().subscribe({
+      next: (projects) => {
+        this.projects = projects
+      },
+      error: (error) => {
+        console.log(error)
+      },
+      complete: () => {
+        this.isLoading = false
+      }
+    })
   }
 }
