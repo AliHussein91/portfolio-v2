@@ -2,11 +2,12 @@ import { Component, Input, inject } from '@angular/core';
 import { ProjectCardComponent } from "../../shared/components/project-card/project-card.component";
 import { Project } from '../../shared/types/project';
 import { TranslatePipe } from '@ngx-translate/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-projects-sample',
   standalone: true,
-  imports: [ProjectCardComponent, TranslatePipe],
+  imports: [ProjectCardComponent, TranslatePipe,RouterLink],
   templateUrl: './projects-sample.component.html',
   styleUrl: './projects-sample.component.scss'
 })
