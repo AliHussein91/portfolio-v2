@@ -37,13 +37,13 @@
   @if(isMenuOpen){
   <ul class="mobile">
     <li (click)="isMenuOpen = false">
-      <a routerLink="/" class="navLink">{{ "about" | translate }}</a>
+      <a routerLink="/about" class="navLink">{{ "about" | translate }}</a>
     </li>
     <li (click)="isMenuOpen = false">
-      <a routerLink="/" class="navLink">{{ "projects" | translate }}</a>
+      <a routerLink="/projects" class="navLink">{{ "projects" | translate }}</a>
     </li>
     <li (click)="isMenuOpen = false">
-      <a routerLink="/" class="navLink">{{ "contact" | translate }}</a>
+      <a routerLink="/contact" class="navLink">{{ "contact" | translate }}</a>
     </li>
     <li (click)="changeLang(); isMenuOpen = false">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="lang">
