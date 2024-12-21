@@ -17,10 +17,19 @@
   "Frontend Web Developer": "مطور واجهات أمامية",
   "Hello, my name is Ali Hussein": "مرحباً بكم، أنا إسمي علي حسين",
   "text me 😊": "تواصل معي 😊",
-  "I'm passionate about transforming pixels into stunning, interactive experiences. I love crafting beautiful, functional, and user-friendly websites that push the boundaries of web development and design. With a deep understanding of the latest web technologies and frameworks, I'm dedicated to delivering cutting-edge digital solutions. Let's bring your digital vision to life!" : "أنا متحمس لتحويل أفكارك إلى تجارب مذهلة وتفاعلية. أنا شغوف بصنع مواقع ويب جميلة ووظيفية وصديقة للمستخدم تدفع حدود تطوير وتصميم الويب. مع فهم عميق لأحدث تقنيات واطارات عمل الويب، أنا ملتزم بتقديم حلول رقمية متطورة. دعونا نحقق رؤيتك الرقمية!",
+  "I'm passionate about transforming pixels into stunning, interactive experiences. I love crafting beautiful, functional, and user-friendly websites that push the boundaries of web development and design. With a deep understanding of the latest web technologies and frameworks, I'm dedicated to delivering cutting-edge digital solutions. Let's bring your digital vision to life!": "أنا متحمس لتحويل أفكارك إلى تجارب مذهلة وتفاعلية. أنا شغوف بصنع مواقع ويب جميلة ووظيفية وصديقة للمستخدم تدفع حدود تطوير وتصميم الويب. مع فهم عميق لأحدث تقنيات واطارات عمل الويب، أنا ملتزم بتقديم حلول رقمية متطورة. دعونا نحقق رؤيتك الرقمية!",
   "view project": "عرض المشروع",
   "explore more": "استكشف المزيد",
   "about me": "من أنا",
   "I'm a web developer driven by a passion for crafting beautiful and functional websites & web apps. My expertise in multiple web technologies allows me to bring creative visions to life. I'm constantly learning and experimenting with new technologies to stay ahead of the curve. I love the thrill of building new projects and seeing them come to life.": "أنا مطور ويب مدفوعًا بشغف صناعة مواقع و تطبيقات ويب جميلة و وظيفية. خبرتي في العديد من تقنيات الويب تتيح لي إحياء الرؤى الإبداعية. أنا أتعلم باستمرار وأجرب تقنيات جديدة لأبقى متقدمًا دائما وعلي علم بأحدث ما وصلت له التكنولوجيا. أحب بناء مشاريع جديدة ورؤيتها تتحقق.",
-  "resume": "السيرة الذاتية"
+  "resume": "السيرة الذاتية",
+  "skills": "المهارات",
+  "projects management": "إدارة المشاريع",
+  "skills management": "إدارة المهارات",
+  "messages": "الرسائل",
+  "admin": "الإدارة",
+  "login": "تسجيل الدخول",
+  "logout": "تسجيل الخروج",
+  "username": "إسم المستخدم",
+  "password": "كلمة المرور"
 }

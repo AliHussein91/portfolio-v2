@@ -1,5 +1,7 @@
 <footer>
-  <app-contact />
+  @if(isVisible){
+    <app-contact />
+  }
   <div class="footer-details">
     <ul class="links">
       <li>
@@ -116,7 +118,10 @@
         </a>
       </li>
       <li>
-        <a href="https://api.whatsapp.com/send/?phone=00201003390002" target="_blank">
+        <a
+          href="https://api.whatsapp.com/send/?phone=00201003390002"
+          target="_blank"
+        >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path
               fill="#25282B"
@@ -126,7 +131,12 @@
         </a>
       </li>
     </ul>
-    <p class="author">{{'Ali Hussein - 2024' | translate}}</p>
+    <p class="author">{{ "Ali Hussein - 2024" | translate }}</p>
+    @if(authService.adminLoggedIn()){
+      <a routerLink="/" class="login" (click)="logoutUser()">{{ "logout" | translate }}</a>
+    } @else {
+      <a routerLink="/login" class="login">{{ "login" | translate }}</a>
+    }
   </div>
   <img src="img/footer_bg.svg" class="bg-footer" />
 </footer>

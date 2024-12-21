@@ -1,7 +1,8 @@
 import { NgClass } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 export class HeaderComponent {
   @Output() lang = new EventEmitter()
   isMenuOpen: boolean = false
+  authService = inject(AuthService)
 
   changeLang() {
     this.lang.emit()

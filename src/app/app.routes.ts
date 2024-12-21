@@ -1,14 +1,37 @@
-import { AboutComponent } from './pages/about/about.component';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { AppComponent } from './app.component';
 import { ContactMeComponent } from './pages/contact-me/contact-me.component';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
-    {path: '', component: HomeComponent},
-    {path: 'about', loadComponent: () => import('./pages/about/about.component').then(c => c.AboutComponent)},
-    {path: 'projects', loadComponent: ()=> import('./pages/projects/projects.component').then(c => c.ProjectsComponent)},
-    {path: 'admin', loadComponent: ()=> import('./pages/admin/admin.component').then(c => c.AdminComponent)},
-    {path: 'contact', component: ContactMeComponent},
-    {path: '**', redirectTo: '', pathMatch: 'full'}
+    {
+        path: '',
+        component: HomeComponent
+    },
+    {
+        path: 'about',
+        loadComponent: () => import('./pages/about/about.component').then(c => c.AboutComponent)
+    },
+    {
+        path: 'projects',
+        loadComponent: () => import('./pages/projects/projects.component').then(c => c.ProjectsComponent)
+    },
+    {
+        path: 'admin',
+        loadChildren: () => import('./pages/admin/admin.routes').then(r => r.adminRoutes),
+        canActivate: [authGuard]
+    },
+    {
+        path: 'login',
+        loadComponent: () => import('./pages/login/login.component').then(c => c.LoginComponent)
+    },
+    {
+        path: 'contact',
+        component: ContactMeComponent
+    },
+    {
+        path: '**',
+        redirectTo: '',
+        pathMatch: 'full'
+    }
 ];
