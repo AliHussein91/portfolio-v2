@@ -4,6 +4,11 @@
   gap: 1rem;
   position: relative;
   .image {
+    .hero__img {
+      -webkit-mask-image: url(../../../../public/img/hero_bg.svg);
+      mask-image: url(../../../../public/img/hero_bg.svg);
+      mask-repeat: no-repeat;
+    }
   }
   .intro {
     display: flex;
@@ -12,7 +17,7 @@
     justify-content: center;
     gap: 0.5rem;
     padding-inline: 1rem;
-    padding-block: 3rem;
+    padding-bottom: 3rem;
     .role {
       color: var(--primary);
       font-size: 1.2rem;
@@ -94,6 +99,7 @@
     }
     .intro {
       padding-inline: 4rem;
+      padding-block: 3rem;
     }
   }
 }
@@ -125,6 +131,9 @@
       order: 1;
       position: relative;
       width: 100%;
+      .hero__img {
+        width: 100%;
+      }
     }
     .intro {
       padding-inline: 4rem;

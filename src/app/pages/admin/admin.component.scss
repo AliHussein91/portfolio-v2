@@ -1,0 +1,51 @@
+.admin {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 1rem;
+  .admin-nav {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    padding-block: 1rem;
+    .nav-item {
+      padding-inline: 0.5rem;
+      text-transform: uppercase;
+      font-size: 1.1rem;
+      cursor: pointer;
+      &.active {
+        color: var(--primary);
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          width: 80%;
+          margin: auto;
+          height: 2px;
+          background-color: var(--primary);
+          margin-top: 0.1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 400px) {
+  .admin {
+      padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 830px) {
+  .admin {
+      padding-inline: 4rem;
+  }
+}
