@@ -1,8 +1,9 @@
 import { NgClass } from '@angular/common';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, inject, OnInit, Signal, signal } from '@angular/core';
 import { IMessage } from '../../../core/types/message.interface';
 import { FormsModule } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
+import { MessageService } from '../../../core/services/message.service';
 
 @Component({
   selector: 'app-messages',
@@ -11,46 +12,95 @@ import { TranslatePipe } from '@ngx-translate/core';
   templateUrl: './messages.component.html',
   styleUrl: './messages.component.scss'
 })
-export class MessagesComponent {
-  messages: IMessage[] = [];
-  totalPages: number = 1
-  currentPage: number = 1
-  itemsPerPage: number = 5;
+export class MessagesComponent implements OnInit {
+  messages = signal<IMessage[]>([]);
+  pageMessages = signal<IMessage[]>([]);
+  totalPages: number = 1;
+  currentPage: number = 1;
+  itemsPerPage: number = 3;
   sortCriteria!: string;
   searchQuery!: string;
 
-  constructor() {
-    this.totalPages = this.messages.length / this.itemsPerPage;
+  private messageService = inject(MessageService);
+
+  ngOnInit() {
+    this.loadMessages();
+  }
+
+  private loadMessages() {
+    this.messageService.getMessages().subscribe({
+      next: (messages) => {
+        this.messages.set(messages);
+        this.updatePagination();
+      },
+      error: (err) => console.error(err)
+    });
   }
 
   previousPage() {
-    if (this.currentPage > 1) this.currentPage--;
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updatePageMessages();
+    }
   }
-  nextPage() {
-    if (this.currentPage <= this.totalPages) this.currentPage++;
-  }
-  deleteMessage(message: IMessage) {
-    console.log('Delete message', message);
-  }
-  onSort() {
-    this.messages.sort((a, b) => {
-      if (this.sortCriteria === 'name') {
-        return a.name.localeCompare(b.name);
-      } else if (this.sortCriteria === 'email') {
-        return a.email.localeCompare(b.email);
-      } else if (this.sortCriteria === 'phone') {
-        return a.phone.localeCompare(b.phone);
-      }
-      return 0; // Default return value
-    });
 
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.updatePageMessages();
+    }
   }
-  onSearch() {
-    this.messages = this.messages.filter((message) => {
-      return message.name.includes(this.searchQuery) || message.email.includes(this.searchQuery) || message.phone.includes(this.searchQuery) || message.message.includes(this.searchQuery);
+
+  deleteMessage(message: IMessage) {
+    this.messageService.deleteMessage(message._id).subscribe({
+      next: () => {
+        this.messages.set(this.messages().filter((msg) => msg._id !== message._id));
+        this.updatePagination();
+      },
+      error: (err) => console.error(err)
     });
   }
+
   onMessageClick(message: IMessage) {
-    console.log('Message click', message);
+    message.read = !message.read;
+    const updateMethod = message.read ? 'updateMessageAsRead' : 'updateMessageAsUnread';
+    this.messageService[updateMethod](message._id).subscribe();
+  }
+
+  onSort() {
+    const criteria = this.sortCriteria;
+    this.pageMessages.update((messages) => {
+      return messages.sort((a, b) => {
+        if (criteria === 'name') return a.name.localeCompare(b.name);
+        if (criteria === 'email') return a.email.localeCompare(b.email);
+        if (criteria === 'date') return a.createdAt.localeCompare(b.createdAt);
+        return 0;
+      });
+    });
+  }
+
+  onSearch() {
+    const query = this.searchQuery.toLowerCase();
+    const filteredMessages = this.messages().filter((message) => {
+      return ['name', 'email', 'phone', 'message'].some((key) =>
+        (message as any)[key].toLowerCase().includes(query)
+      );
+    });
+    this.updatePagination(filteredMessages);
+  }
+
+  private updatePagination(messages: IMessage[] = this.messages()) {
+    this.totalPages = Math.ceil(messages.length / this.itemsPerPage);
+    this.updatePageMessages(messages);
+  }
+
+  private updatePageMessages(messages: IMessage[] = this.messages()) {
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    const end = this.currentPage * this.itemsPerPage;
+    this.pageMessages.set(messages.slice(start, end));
+  }
+
+  showMessages() {
+    return this.pageMessages().length > 0;
   }
 }

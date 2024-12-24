@@ -43,10 +43,21 @@
       <textarea name="message" id="" formControlName="message"></textarea>
       @if(form.controls['message'].touched && form.controls['message'].invalid){
       <small class="input-error">{{
-        "Please enter the message!" | translate
+        "Message must be a minimum of 50 characters!" | translate
       }}</small>
       }
     </fieldset>
     <button type="submit">{{ "send" | translate }}</button>
   </form>
+  <div class="message-status">
+    @if(isSent){
+    <p class="success-message">
+      {{ "Your message has been sent successfully!" | translate }}
+    </p>
+    } @if(isError){
+    <p class="error-message">
+      {{ "An error occurred while sending the message!" | translate }}
+    </p>
+    }
+  </div>
 </div>

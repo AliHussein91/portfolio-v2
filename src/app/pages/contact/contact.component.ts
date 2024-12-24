@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 import { TranslatePipe } from '@ngx-translate/core';
+import { MessageService } from '../../core/services/message.service';
 
 @Component({
   selector: 'app-contact',
@@ -11,6 +12,9 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 export class ContactComponent {
   private fb = inject(FormBuilder)
+  private messageService = inject(MessageService)
+  isSent: boolean = false
+  isError: boolean = false
   form!: FormGroup
   constructor() {
     this.form = this.fb.nonNullable.group({
@@ -26,6 +30,20 @@ export class ContactComponent {
       this.form.markAllAsTouched()
       return
     }
-    console.log(this.form.getRawValue())
+    this.messageService.postMessage(this.form.getRawValue()).subscribe({
+      next: (res) => {
+        this.isSent = true
+        this.form.reset()
+      },
+      error: (err) => {
+        this.isError = true
+      },
+      complete: () => {
+        setTimeout(() => {
+          this.isSent = false
+          this.isError = false
+        }, 3000)
+      }
+    })
   }
 }

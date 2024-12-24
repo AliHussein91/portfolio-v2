@@ -10,7 +10,7 @@ import { tap } from 'rxjs';
 })
 export class AuthService {
   adminLoggedIn = signal(false)
-
+  private wakeURL = END_Points.wake
   authURL = END_Points.auth
 
   http = inject(HttpClient)
@@ -46,5 +46,9 @@ export class AuthService {
   redirectToAdmin() {
     this.router.navigate(['/admin'])
   }
+  wakeUpServer() {
+    return this.http.get(this.wakeURL.wakeUp)
+  }
+
 }
 

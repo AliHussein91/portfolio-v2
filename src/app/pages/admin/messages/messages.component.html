@@ -2,37 +2,52 @@
   <div class="search-sort-bar">
     <input
       type="text"
-      placeholder="Search message..."
+      j.
+      placeholdermm="Search message..."
       [(ngModel)]="searchQuery"
       (input)="onSearch()"
     />
     <div class="sort">
-        <p>Sort By</p>
-        <select [(ngModel)]="sortCriteria" (change)="onSort()">
-          <option value="name">{{'Name' | translate}}</option>
-          <option value="email">{{'Email' | translate}}</option>
-          <option value="phone">{{'Phone' | translate}}</option>
-        </select>
+      <p>Sort By</p>
+      <select [(ngModel)]="sortCriteria" (change)="onSort()">
+        <option value="name">{{ "Name" | translate }}</option>
+        <option value="email">{{ "Email" | translate }}</option>
+        <option value="date">{{ "Date" | translate }}</option>
+      </select>
     </div>
   </div>
   <div class="message-list">
-      @for(message of messages; track $index){
-          <div >
-            <div
-              class="message-item"
-              ngClass="message.read ? 'read' : 'unread'"
-              (click)="onMessageClick(message)"
-            >
-              <p><strong>Name:</strong> {{ message.name }}</p>
-              <p><strong>Email:</strong> {{ message.email }}</p>
-              <p><strong>Phone:</strong> {{ message.phone }}</p>
-              <p><strong>Message:</strong> {{ message.message }}</p>
-            </div>
-          </div>
-      }
+    @for(message of pageMessages(); track message._id){
+    <div>
+      <div
+        class="message-item"
+        [ngClass]="message.read ? 'read' : 'unread'"
+        (click)="onMessageClick(message)"
+      >
+        <p class="email">{{ message.email }}</p>
+        <p class="phone">{{ message.phone }}</p>
+        <p class="name">{{ message.name }}</p>
+        <p class="message">{{ message.message }}</p>
+        <span class="delete">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            (click)="deleteMessage(message)"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="#000"
+              d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21zm2-4h2V8H9zm4 0h2V8h-2z"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+    }
   </div>
 
-  <div class="pagination-controls">
+  <div class="pagination-controls" dir="ltr">
     <button (click)="previousPage()" [disabled]="currentPage === 1">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +58,10 @@
         <path fill="#25282B" d="m4 10l9 9l1.4-1.5L7 10l7.4-7.5L13 1z" />
       </svg>
     </button>
-    <span>{{'Page'| translate}} {{ currentPage }} {{'of' | translate}} {{ totalPages }}</span>
+    <span
+      >{{ "Page" | translate }} {{ currentPage }} {{ "of" | translate }}
+      {{ totalPages }}</span
+    >
     <button (click)="nextPage()" [disabled]="currentPage === totalPages">
       <svg
         xmlns="http://www.w3.org/2000/svg"

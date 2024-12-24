@@ -1,6 +1,5 @@
 :host {
-    width: 100%;
-    padding-block: 3rem;
+  width: 100%;
 }
 .messages {
   display: flex;
@@ -62,9 +61,6 @@
           border-color: var(--text-light);
           transition: all 0.2s ease-in-out;
         }
-        option:hover {
-            background-color: red;
-        }
       }
     }
   }
@@ -80,24 +76,63 @@
       border-radius: 4px;
       background-color: #fff;
       cursor: pointer;
+      position: relative;
       transition: background-color 0.3s;
 
       &.read {
-        background-color: #e0e0e0;
+        color: var(--text);
       }
 
       &.unread {
-        background-color: #fff;
+        color: var(--white);
+        background-color: var(--blue);
       }
 
       &:hover {
         background-color: #f1f1f1;
+        color: var(--text);
+        & .message {
+          white-space: normal;
+          text-overflow: clip;
+        }
       }
 
       p {
         margin: 5px 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        &.name {
+          font-size: 0.9rem;
+        }
+        &.email {
+          font-weight: 600;
+          font-size: 1.1rem;
+        }
+        &.phone {
+          font-size: 0.9rem;
+        }
+        &.message {
+          font-size: 0.9rem;
+        }
+      }
+      .delete {
+        position: absolute;
+        top: 5px;
+        inset-inline-end: 5px;
+        // background-color: var(--error);
+        // color: var(--white);
+        border: none;
+        border-radius: 50%;
+        padding: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        &:hover svg path {
+          fill: var(--error);
+        }
       }
     }
+
   }
 
   .pagination-controls {
@@ -130,5 +165,3 @@
     }
   }
 }
-
-

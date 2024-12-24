@@ -14,6 +14,9 @@ export class END_Points {
         updateUser: (id: string) => baseURL + `/users/${id}`,
         deletUser: (id: string) => baseURL + `/users/${id}`,
     };
+    public static wake = {
+        wakeUp: baseURL + '/wake-up',
+    }
     public static projects = {
         getProjects: baseURL + '/projects',
         postProject: baseURL + '/projects',

@@ -21,6 +21,7 @@ export class AppComponent {
   authService = inject(AuthService)
 
   constructor() {
+    this.wakeUpServer()
     this.authService.autoLogin()
     this.localizationService.start()
     this.router.events.pipe(
@@ -34,6 +35,17 @@ export class AppComponent {
     this.localizationService.changeLang()
   }
 
+  wakeUpServer() {
+    this.authService.wakeUpServer().subscribe({
+      next: (data) =>{
+        console.log("Server is awake")
+      },
+      error: (error) => console.error(error)
+    })
+  }
+}
 
+function parseJSON(data: Object) {
+  throw new Error('Function not implemented.');
 }
 
