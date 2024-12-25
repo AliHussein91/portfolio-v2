@@ -11,6 +11,9 @@ export class LocalizationService {
   rtl = signal(false)
 
   start() {
+    if (!localStorage.getItem('language')) {
+      localStorage.setItem('language', this.language)
+    }
     this.rtl.set(this.language === 'en' ? false : true)
     this.translate.addLangs(['ar', 'en']);
     this.translate.setDefaultLang(this.language);
