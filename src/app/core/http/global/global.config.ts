@@ -27,7 +27,8 @@ export class END_Points {
     public static upload = {
         getUploads: baseURL + '/uploads',
         postUpload: baseURL + '/uploads',
-        putUpload: (id: string) => baseURL + `/uploads/${id}`,
+        markInUse: (fileName: string) => baseURL + `/uploads/use/${fileName}`,
+        markNotInUse: (fileName: string) => baseURL + `/uploads/unuse/${fileName}`,
     };
     public static skills = {
         getSkills: baseURL + '/skills',

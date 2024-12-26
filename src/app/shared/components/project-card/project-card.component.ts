@@ -1,5 +1,5 @@
 import { Component, inject, Input } from '@angular/core';
-import { Project } from '../../types/project';
+import { IProject } from '../../../core/types/project.interface';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { NgClass } from '@angular/common';
@@ -13,8 +13,8 @@ import { LocalizationService } from '../../../core/services/localization.service
   styleUrl: './project-card.component.scss'
 })
 export class ProjectCardComponent {
-  @Input({ required: true }) project!: Project
-  @Input({required: true}) left: boolean = false
+  @Input({ required: true }) project!: IProject
+  @Input({ required: true }) left: boolean = false
 
   localizationService = inject(LocalizationService)
 
