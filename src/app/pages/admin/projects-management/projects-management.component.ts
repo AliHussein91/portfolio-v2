@@ -2,64 +2,25 @@ import e from 'express';
 import { ProjectsService } from '../../../core/services/projects.service';
 import { IProject } from '../../../core/types/project.interface';
 import { Component, inject, OnInit } from '@angular/core';
+import { UploadMediaService } from '../../../core/services/upload-media.service';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-projects-management',
   standalone: true,
-  imports: [],
+  imports: [RouterOutlet],
   templateUrl: './projects-management.component.html',
   styleUrl: './projects-management.component.scss'
 })
-export class ProjectsManagementComponent implements OnInit {
+export class ProjectsManagementComponent {
 
   projects: IProject[] = []
   isLoading: boolean = false
+  newProjectImage: string = ''
   projectsService = inject(ProjectsService)
+  uploadMediaService = inject(UploadMediaService)
 
-  ngOnInit(): void {
-    this.showProjects();
-  }
 
-  // Show all projects
-  async showProjects() {
-    if (!localStorage.getItem('projects')) {
-      this.getProjects()
-    }
-    const projects = await JSON.parse(localStorage.getItem('projects')!)
-    this.projects = projects
-  }
-
-  // Get a project by id
-  getProject(id: string) {
-    this.isLoading = true
-    this.projectsService.getProject(id).subscribe({
-      next: project => {
-        console.log(project)
-      },
-      error: (err) => {
-        console.log(err)
-      },
-      complete: () => {
-        this.isLoading = false
-      }
-    })
-  }
-
-  // Add a new project to the projects array
-  postProject(project: IProject) {
-    this.isLoading = true
-    this.projectsService.postProject(project).subscribe({
-      next: project => {
-        this.projects.push(project)
-      },
-      error: (err) => {
-        console.log(err)
-      },
-      complete: () => {
-        this.isLoading = false
-      }
-    })
-  }
 
   // Update a project by id
   updateProject(id: string, project: IProject) {
@@ -77,35 +38,23 @@ export class ProjectsManagementComponent implements OnInit {
     })
   }
 
-  // Get all projects
-  getProjects() {
-    this.isLoading = true
-    this.projectsService.getProjects().subscribe({
-      next: projects => {
-        this.projects = projects
-      },
-      error: (err) => {
-        console.log(err)
-      },
-      complete: () => {
-        this.isLoading = false
-      }
-    })
-  }
 
-  // Delete a project by id
-  deleteProject(id: string) {
-    this.isLoading = true
-    this.projectsService.deleteProject(id).subscribe({
-      next: () => {
-        this.projects = this.projects.filter(project => project._id !== id)
-      },
-      error: (err) => {
-        console.log(err)
-      },
-      complete: () => {
-        this.isLoading = false
-      }
-    })
-  }
+  
+
+// Upload a project image
+uploadImage(file: File) {
+  this.isLoading = true
+  this.uploadMediaService.postImage(file).subscribe({
+    next: (res: any) => {
+      console.log(res)
+      this.newProjectImage = res
+    },
+    error: (err) => {
+      console.log(err)
+    },
+    complete: () => {
+      this.isLoading = false
+    }
+  })
+}
 }

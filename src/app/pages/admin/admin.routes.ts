@@ -16,7 +16,7 @@ export const adminRoutes: Routes = [
             },
             {
                 path: 'projects',
-                component: ProjectsManagementComponent
+                loadChildren: () => import('./projects-management/project-management.routes').then(r => r.projectsManagementRoutes)
             },
             {
                 path: 'skills',

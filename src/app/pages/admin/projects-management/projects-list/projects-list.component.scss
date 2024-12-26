@@ -1,0 +1,85 @@
+.projects-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .projects-table th,
+  .projects-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  .projects-table th {
+    background-color: #f2f2f2;
+    text-align: center;
+  }
+
+  .projects-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .projects-table tr:hover {
+    background-color: #ddd;
+  }
+
+  .edit-project,
+  .delete-project,
+  .add-project {
+    padding: 0.5rem 1rem;
+    // margin: 4px;
+    cursor: pointer;
+  }
+
+  .edit-project {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+  }
+
+  .delete-project {
+    background-color: #f44336;
+    color: white;
+    border: none;
+  }
+
+  .add-project {
+    background-color: #008CBA;
+    color: white;
+    border: none;
+  }
+
+  @media screen and (max-width: 600px) {
+    .projects-table thead {
+      display: none;
+    }
+
+    .projects-table tr {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .projects-table td {
+      display: block;
+      text-align: right;
+      border: none;
+      position: relative;
+      padding-left: 50%;
+    }
+
+    .projects-table td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 0;
+      width: 50%;
+      padding-left: 10px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .edit-project,
+    .delete-project,
+    .add-project {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
