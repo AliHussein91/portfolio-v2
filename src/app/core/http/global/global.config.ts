@@ -1,4 +1,4 @@
-export const baseURL = 'https://myportfolio-ewtufvor.b4a.run/api';
+export const baseURL = 'http://meetali.online/api';
 
 
 export class END_Points {
