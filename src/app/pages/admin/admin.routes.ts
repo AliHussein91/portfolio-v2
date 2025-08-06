@@ -1,7 +1,5 @@
 import { Routes } from "@angular/router";
 import { MessagesComponent } from "./messages/messages.component";
-import { ProjectsManagementComponent } from "./projects-management/projects-management.component";
-import { SkillsManagementComponent } from "./skills-management/skills-management.component";
 import { AdminComponent } from "./admin.component";
 
 
@@ -20,7 +18,7 @@ export const adminRoutes: Routes = [
             },
             {
                 path: 'skills',
-                component: SkillsManagementComponent
+                loadChildren: () => import('./skills-management/skills-management.routes').then(r => r.skillsManagementRoutes)
             },
         ]
     },

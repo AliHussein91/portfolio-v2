@@ -3,12 +3,12 @@ import { ProjectsService } from '../../../../core/services/projects.service';
 import { UploadMediaService } from '../../../../core/services/upload-media.service';
 import { IProject } from '../../../../core/types/project.interface';
 import { mergeMap } from 'rxjs';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-project',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './add-project.component.html',
   styleUrl: './add-project.component.scss'
 })
