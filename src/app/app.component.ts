@@ -15,7 +15,7 @@ import { ProjectsService } from './core/services/projects.service';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  title = 'portfolio-v2';
+  title = 'Ali Hussein';
   isContactFormVisible = true
   
   localizationService = inject(LocalizationService)
