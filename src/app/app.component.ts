@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
     // Get the projects data
     this.getProjects()
     // Auto login if the user has a token
-    this.authService.autoLogin()
+    // this.authService.autoLogin()
     // Hide the contact form on specific routes
     this.hideContactForm()
   }

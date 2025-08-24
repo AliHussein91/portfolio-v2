@@ -14,7 +14,7 @@ import { AuthService } from '../../../core/services/auth.service';
 export class HeaderComponent {
   @Output() lang = new EventEmitter()
   isMenuOpen: boolean = false
-  authService = inject(AuthService)
+  // authService = inject(AuthService)
 
   changeLang() {
     this.lang.emit()

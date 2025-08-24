@@ -2,11 +2,6 @@
   <nav>
     <a routerLink="/" class="logo">{{ "Ali Hussein" | translate }}</a>
     <ul class="desktop">
-      @if (authService.adminLoggedIn()) {
-      <li>
-        <a routerLink="/admin" class="navLink">{{ "admin" | translate }}</a>
-      </li>
-      }
       <li>
         <a routerLink="/" class="navLink">{{ "home" | translate }}</a>
       </li>
@@ -55,11 +50,6 @@
   </nav>
   @if(isMenuOpen){
   <ul class="mobile">
-    @if (authService.adminLoggedIn()) {
-    <li (click)="isMenuOpen = false">
-      <a routerLink="/admin" class="navLink">{{ "admin" | translate }}</a>
-    </li>
-    }
     <li (click)="isMenuOpen = false">
       <a routerLink="/" class="navLink">{{ "home" | translate }}</a>
     </li>

@@ -13,9 +13,9 @@ import { AuthService } from '../../../core/services/auth.service';
 })
 export class FooterComponent {
   @Input() isVisible = true
-  authService = inject(AuthService)
+  // authService = inject(AuthService)
 
-  logoutUser() {
-    this.authService.logout()
-  }
+  // logoutUser() {
+  //   this.authService.logout()
+  // }
 }

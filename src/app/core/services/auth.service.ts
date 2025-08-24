@@ -9,43 +9,43 @@ import { tap } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  adminLoggedIn = signal(false)
+  // adminLoggedIn = signal(false)
   private wakeURL = END_Points.wake
-  authURL = END_Points.auth
+  // authURL = END_Points.auth
 
   http = inject(HttpClient)
-  router = inject(Router)
-  login(credentials: { email: string, password: string }) {
-    return this.http.post(this.authURL.loginUser, credentials)
-  }
+  // router = inject(Router)
+  // login(credentials: { email: string, password: string }) {
+  //   return this.http.post(this.authURL.loginUser, credentials)
+  // }
 
-  autoLogin() {
-    const token = localStorage.getItem('token')
-    if (token) {
-      this.adminLoggedIn.set(true)
-    }
-  }
+  // autoLogin() {
+  //   const token = localStorage.getItem('token')
+  //   if (token) {
+  //     this.adminLoggedIn.set(true)
+  //   }
+  // }
 
-  logout() {
-    return this.http.post(this.authURL.logout, {}).subscribe({
-      next: () => {
-        localStorage.removeItem('token')
-        this.adminLoggedIn.set(false)
-        this.router.navigate(['/'])
-      },
-      error: (error) => {
-        console.error(error)
-      }
-    })
-  }
+  // logout() {
+  //   return this.http.post(this.authURL.logout, {}).subscribe({
+  //     next: () => {
+  //       localStorage.removeItem('token')
+  //       this.adminLoggedIn.set(false)
+  //       this.router.navigate(['/'])
+  //     },
+  //     error: (error) => {
+  //       console.error(error)
+  //     }
+  //   })
+  // }
 
-  register(credentials: IUser) {
-    return this.http.post(this.authURL.registerUser, credentials)
-  }
+  // register(credentials: IUser) {
+  //   return this.http.post(this.authURL.registerUser, credentials)
+  // }
 
-  redirectToAdmin() {
-    this.router.navigate(['/admin'])
-  }
+  // redirectToAdmin() {
+  //   this.router.navigate(['/admin'])
+  // }
   wakeUpServer() {
     return this.http.get(this.wakeURL.wakeUp)
   }
