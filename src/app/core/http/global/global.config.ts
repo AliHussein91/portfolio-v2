@@ -1,5 +1,5 @@
-export const baseURL = 'https://api.meetali.online/api';
-// export const baseURL = 'http://localhost:5000/api';
+// export const baseURL = 'https://api.meetali.online/api';
+export const baseURL = 'http://localhost:3000/api';
 
 
 export class END_Points {
