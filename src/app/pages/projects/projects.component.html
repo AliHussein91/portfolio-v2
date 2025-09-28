@@ -1,8 +1,22 @@
 <section class="sample-projects">
-    <h1 class="section-head">{{'projects' | translate}}</h1>
-    <div class="projects">
-        @for (project of projects; track $index) {
-            <app-project-card [project]="project" [left]="$index % 2 === 0 ? true: false" />
-        }
-    </div>
+  <h1 class="section-head">{{ "projects" | translate }}</h1>
+  <div class="projects">
+    @for (project of paginatedProjects; track $index) {
+    <app-project-card
+      [project]="project"
+      [left]="$index % 2 === 0 ? true : false"
+    />
+    }
+  </div>
+  <nav class="pagination" *ngIf="totalPages > 1" class="inline-flex gap-2 justify-center items-center">
+    <button class="cursor-pointer hover:font-bold" (click)="prevPage()" [disabled]="currentPage === 1">&lt;</button>
+    <span *ngFor="let page of [].constructor(totalPages); let i = index">
+      <button class="cursor-pointer hover:font-bold" (click)="goToPage(i + 1)" [class.active]="currentPage === i + 1">
+        {{ i + 1 }}
+      </button>
+    </span>
+    <button class="cursor-pointer hover:font-bold" (click)="nextPage()" [disabled]="currentPage === totalPages">
+      &gt;
+    </button>
+  </nav>
 </section>
