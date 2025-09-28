@@ -10,6 +10,7 @@ export interface IProject {
     status: string
     link?: string
     skills: ISkill[]
+    featured: boolean
     createdAt?: Date
     updatedAt?: Date
 }

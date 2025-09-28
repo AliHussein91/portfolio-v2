@@ -28,8 +28,10 @@ export class HomeComponent implements OnInit {
     if (!localStorage.getItem('projects')) {
       this.getProjects();
     }
+    
     const projects = await JSON.parse(localStorage.getItem('projects')!);
-    this.projects = projects.slice(0, 3);
+    // set this.projects to the projects with featured true
+    this.projects = projects.filter((project: IProject) => project.featured).slice(0, 3);
   }
 
   // Get projects from server and save them to the local storage
