@@ -5,6 +5,11 @@
     <p class="project-description">
       {{ rtl() ? project.descriptionAr : project.description }}
     </p>
+    <div class="project-skills inline-flex gap-1">
+      <span *ngFor="let skill of project.skills" class="project-skill rounded-full px-2 py-1 ">{{
+        skill
+      }}</span>
+    </div>
     <a
       [href]="project.link"
       class="project-link"
@@ -25,6 +30,12 @@
     <p class="project-description">
       {{ rtl() ? project.descriptionAr : project.description }}
     </p>
+    <!-- Add the skills used for the project each in a <span> -->
+    <div class="project-skills inline-flex gap-1">
+      <span *ngFor="let skill of project.skills" class="project-skill rounded-full px-2 py-1 ">{{
+        skill
+      }}</span>
+    </div>
     <a
       [href]="project.link"
       class="project-link"
