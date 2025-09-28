@@ -1,11 +1,16 @@
 <section class="about">
-    <div class="my-info">
-        <h1 class="title">{{'about me' | translate}}</h1>
-        <p class="detail">{{"I'm a web developer driven by a passion for crafting beautiful and functional websites & web apps. My expertise in multiple web technologies allows me to bring creative visions to life. I'm constantly learning and experimenting with new technologies to stay ahead of the curve. I love the thrill of building new projects and seeing them come to life." | translate}}</p>
-        <button class="resume">{{'resume' | translate}}</button>
-    </div>
-    <div class="image">
-        <img src="img/about.png" alt="">
-    </div>
+  <div class="my-info">
+    <h1 class="title">{{ "about me" | translate }}</h1>
+    <p class="detail">
+      {{
+        "I'm a web developer driven by a passion for crafting beautiful and functional websites & web apps. My expertise in multiple web technologies allows me to bring creative visions to life. I'm constantly learning and experimenting with new technologies to stay ahead of the curve. I love the thrill of building new projects and seeing them come to life."
+          | translate
+      }}
+    </p>
+    <button class="resume">{{ "resume" | translate }}</button>
+  </div>
+  <div class="image">
+    <img src="img/profile_img.png" alt="" />
+  </div>
 </section>
 <app-skills />

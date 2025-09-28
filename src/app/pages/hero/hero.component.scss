@@ -104,7 +104,88 @@
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 600px) {
+  .hero {
+    .intro {
+      padding-inline: 4rem;
+      padding-block: 3rem;
+    }
+  }
+}
+
+@media (min-width: 990px) { 
+  .hero {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    .image {
+      display: block;
+      position: relative;
+      width: 100%;
+      order: 1;
+      
+      .hero__img {
+        width: 100%;
+
+      }
+    }
+    .intro {
+      padding-inline: 4rem;
+      padding-block: 3rem;
+      .role {
+        font-size: 0.9rem;
+      }
+      .headline {
+        font-size: 2.2rem;
+      }
+      .detail {
+        font-size: 0.9rem;
+        // line-height: 1.2;
+      }
+    }
+  }
+}
+
+@media (min-width: 1180px) {
+  .hero {
+    .intro {
+      padding-inline: 4rem;
+      padding-block: 3rem;
+      .role {
+        font-size: 1rem;
+      }
+      .headline {
+        font-size: 3rem;
+      }
+      .detail {
+        font-size: 1rem;
+        line-height: 1.4;
+      }
+    }
+  }
+ }
+
+ @media (min-width: 1330px) {
+  .hero {
+    .intro {
+      padding-inline: 4rem;
+      padding-block: 0;
+      .role {
+        font-size: 1.2rem;
+      }
+      .headline {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+      }
+      .detail {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+ }
+
+@media (min-width: 1600px) {
   .hero {
     grid-template-columns: 2fr 1fr;
     gap: 4rem;
@@ -123,9 +204,10 @@
   }
 }
 
-@media (min-width: 1120px) {
+@media (min-width: 1600px) {
   .hero {
-    grid-template-columns: 1.5fr 2fr;
+    // grid-template-columns: 1.5fr 2fr;
+    grid-template-columns: 1fr 1fr;
     gap: 4rem;
     .image {
       order: 1;
@@ -137,21 +219,34 @@
     }
     .intro {
       padding-inline: 4rem;
+      padding-block: 3rem;
+      .role {
+        font-size: 1.5rem;
+      }
+      .headline {
+        font-size: 5rem;
+        margin-bottom: 2rem;
+      }
+      .detail {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
     }
   }
 }
 
-@media (min-width: 1400px) {
-    .hero {
-        grid-template-columns: 1fr 1fr;
+// @media (min-width: 1400px) {
+//     .hero {
+//         grid-template-columns: 1fr 1fr;
 
-    }
-}
+//     }
+// }
 
-@media (min-width: 1600px) {
-    .hero {
-        .intro {
-            padding-inline: 8rem;
-        }
-    }
-}
+// @media (min-width: 1600px) {
+//     .hero {
+//         .intro {
+//             // padding-inline: 8rem;
+//         }
+//     }
+// }

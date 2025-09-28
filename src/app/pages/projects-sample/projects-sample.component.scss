@@ -3,7 +3,7 @@
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-  padding-block: 3rem;
+  // padding-bottom: 3rem;
   padding-inline: 1rem;
   .projects {
     display: flex;
@@ -29,3 +29,14 @@
     }
   }
 }
+
+@media (min-width: 600px) { 
+  .sample-projects {
+    padding-inline: 4rem;
+    .projects {
+      gap: 6rem;
+      padding-block: 3rem;
+    }
+  }
+}
+
